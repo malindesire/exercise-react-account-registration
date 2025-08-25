@@ -1,0 +1,14 @@
+.form {
+	width: 25rem;
+	background-color: var(--color-heaven);
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap);
+	padding: var(--page-margin);
+	border-radius: 2rem;
+	align-items: center;
+}
+
+.form > *:last-child {
+	margin-top: var(--gap);
+}
