@@ -1,0 +1,7 @@
+.submitButton[type='submit'] {
+	background: var(--color-offwhite);
+	width: 10rem;
+	height: 2rem;
+	text-align: center;
+	border-radius: 2rem;
+}
