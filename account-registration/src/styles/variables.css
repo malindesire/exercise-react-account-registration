@@ -1,4 +1,8 @@
 :root {
 	--color-offwhite: #fdf8e6;
 	--color-darkgrey: #222222;
+	--color-heaven: #5693f6;
+
+	--gap: 1rem;
+	--page-margin: 2rem;
 }
