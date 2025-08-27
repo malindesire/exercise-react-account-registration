@@ -23,15 +23,36 @@ export const Form = () => {
 	};
 
 	return (
-		<form className={styles.form}>
-			<Input label="Fullname" type="text" name="name" />
-			<Input label="Username" type="text" name="username" />
-			<Input label="E-mail" type="email" name="email" />
-			<Input label="Password" type="password" name="password" />
+		<form className={styles.form} onSubmit={handleSubmit}>
+			<Input
+				label="Fullname"
+				type="text"
+				name="name"
+				onChange={handleChange}
+			/>
+			<Input
+				label="Username"
+				type="text"
+				name="username"
+				onChange={handleChange}
+			/>
+			<Input
+				label="E-mail"
+				type="email"
+				name="email"
+				onChange={handleChange}
+			/>
+			<Input
+				label="Password"
+				type="password"
+				name="password"
+				onChange={handleChange}
+			/>
 			<Input
 				label="Confirm password"
 				type="password"
 				name="confirmPassword"
+				onChange={handleChange}
 			/>
 			<Button />
 		</form>
