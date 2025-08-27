@@ -16,6 +16,7 @@ export const Input = ({ name, label, type, onChange }: InputProps) => {
 				name={name}
 				onChange={onChange}
 				autoComplete={name}
+				required
 			/>
 		</label>
 	);
