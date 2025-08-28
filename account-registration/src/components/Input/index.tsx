@@ -5,9 +5,18 @@ type InputProps = {
 	label: string;
 	type: 'text' | 'email' | 'password';
 	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	value?: string;
+	minLength?: number;
 };
 
-export const Input = ({ name, label, type, onChange }: InputProps) => {
+export const Input = ({
+	name,
+	label,
+	type,
+	onChange,
+	value,
+	minLength,
+}: InputProps) => {
 	return (
 		<label className={styles.label}>
 			{label}
@@ -17,6 +26,8 @@ export const Input = ({ name, label, type, onChange }: InputProps) => {
 				onChange={onChange}
 				autoComplete={name}
 				required
+				value={value}
+				minLength={minLength}
 			/>
 		</label>
 	);
