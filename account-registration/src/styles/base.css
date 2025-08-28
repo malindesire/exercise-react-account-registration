@@ -14,8 +14,15 @@ body {
 	min-height: 100dvh;
 	background-color: var(--color-offwhite);
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+
+#root > * {
+	margin-bottom: 2rem;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 button,
