@@ -4,6 +4,8 @@ import { Input } from '../Input';
 import styles from './style.module.css';
 import { type RegistrationData } from '../../utilities/types';
 
+const minPasswordLength = 8;
+
 export const Form = () => {
 	const [data, setData] = useState<RegistrationData>({
 		name: '',
@@ -11,6 +13,13 @@ export const Form = () => {
 		email: '',
 		password: '',
 	});
+
+	const [password, setPassword] = useState('');
+	const [confirm, setConfirm] = useState('');
+
+	const passwordsMatch = password === confirm;
+	const minLength = password.length >= minPasswordLength;
+	const isValid = passwordsMatch && minLength;
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
@@ -46,15 +55,25 @@ export const Form = () => {
 				label="Password"
 				type="password"
 				name="password"
-				onChange={handleChange}
+				onChange={(e) => {
+					setPassword(e.target.value);
+					handleChange(e);
+				}}
+				minLength={minPasswordLength}
+				value={password}
 			/>
 			<Input
 				label="Confirm password"
 				type="password"
 				name="confirmPassword"
-				onChange={handleChange}
+				onChange={(e) => {
+					setConfirm(e.target.value);
+					handleChange(e);
+				}}
+				minLength={minPasswordLength}
+				value={confirm}
 			/>
-			<Button />
+			<Button disabled={!isValid} />
 		</form>
 	);
 };
