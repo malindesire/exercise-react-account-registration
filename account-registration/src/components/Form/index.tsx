@@ -3,6 +3,7 @@ import { Button } from '../Button';
 import { Input } from '../Input';
 import styles from './style.module.css';
 import { type RegistrationData } from '../../utilities/types';
+import { Message } from '../Message';
 
 const minPasswordLength = 8;
 
@@ -16,6 +17,7 @@ export const Form = () => {
 
 	const [password, setPassword] = useState('');
 	const [confirm, setConfirm] = useState('');
+	const [showMessage, setShowMessage] = useState(false);
 
 	const passwordsMatch = password === confirm;
 	const minLength = password.length >= minPasswordLength;
@@ -58,6 +60,7 @@ export const Form = () => {
 				onChange={(e) => {
 					setPassword(e.target.value);
 					handleChange(e);
+					setShowMessage(!isValid);
 				}}
 				minLength={minPasswordLength}
 				value={password}
@@ -69,10 +72,20 @@ export const Form = () => {
 				onChange={(e) => {
 					setConfirm(e.target.value);
 					handleChange(e);
+					setShowMessage(!isValid);
 				}}
 				minLength={minPasswordLength}
 				value={confirm}
 			/>
+			{showMessage && (
+				<Message
+					message={
+						!passwordsMatch
+							? "Passwords doesn't match."
+							: 'Make sure password is minimum 8 characters.'
+					}
+				/>
+			)}
 			<Button disabled={!isValid} />
 		</form>
 	);
